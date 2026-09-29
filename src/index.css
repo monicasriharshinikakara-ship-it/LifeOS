@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --pastel-lavender: #E9DDFB;
+    --pastel-blue: #DCEBFA;
+    --pastel-mint: #DDF3E4;
+    --pastel-blush: #F7DCE5;
+    --pastel-peach: #FBE4D5;
+    --pastel-cream: #FFF9F2;
+    --dark-text: #2F3142;
+    --dark-text-muted: #5B5E75;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #2F3142;
+    background-color: #FAF8F5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom soft pastel utility classes */
+.bg-pastel-lavender { background-color: #E9DDFB; }
+.bg-pastel-blue { background-color: #DCEBFA; }
+.bg-pastel-mint { background-color: #DDF3E4; }
+.bg-pastel-blush { background-color: #F7DCE5; }
+.bg-pastel-peach { background-color: #FBE4D5; }
+.bg-pastel-cream { background-color: #FFF9F2; }
+
+.text-dark-primary { color: #2F3142; }
+.text-dark-secondary { color: #5B5E75; }
+.text-dark-muted { color: #878A9F; }
+
+.border-pastel-lavender { border-color: #D5C2F6; }
+.border-pastel-blue { border-color: #C6E0F8; }
+.border-pastel-mint { border-color: #C3E9CD; }
+.border-pastel-peach { border-color: #F6D0BA; }
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8D6E2;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B6B4C4;
+}

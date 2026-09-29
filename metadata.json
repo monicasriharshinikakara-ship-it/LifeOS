@@ -1,0 +1,6 @@
+{
+  "name": "LifeOS — Personal Life Operating System",
+  "description": "LifeOS manages the relationships between your goals, career, learning, finances, and schedule with an AI Life Agent that dynamically replans your life as circumstances change.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
