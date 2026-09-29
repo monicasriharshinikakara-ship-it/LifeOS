@@ -17,8 +17,11 @@ import {
   X,
 } from 'lucide-react';
 import { ProposedPlanChange } from '../../types/lifeos';
+import { N8nChatView } from '../n8n/N8nChatView';
+import { Zap } from 'lucide-react';
 
 export const AIAgentView: React.FC = () => {
+  const [aiEngine, setAiEngine] = useState<'lifeos' | 'n8n'>('lifeos');
   const {
     lifeState,
     chatMessages,
@@ -80,8 +83,46 @@ export const AIAgentView: React.FC = () => {
 
   return (
     <div className="h-[calc(100vh-130px)] flex flex-col space-y-4">
-      {/* Header Context Strip: Shows what LifeOS AI knows right now */}
-      <div className="p-4 rounded-3xl bg-white border border-stone-200/80 shadow-xs flex flex-wrap items-center justify-between gap-3 shrink-0">
+      {/* Engine Switcher Tabs */}
+      <div className="flex items-center justify-between gap-2 shrink-0">
+        <div className="flex items-center gap-1.5 p-1 bg-stone-100/90 rounded-2xl border border-stone-200">
+          <button
+            onClick={() => setAiEngine('lifeos')}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+              aiEngine === 'lifeos'
+                ? 'bg-white text-stone-900 shadow-2xs'
+                : 'text-stone-500 hover:text-stone-900'
+            }`}
+          >
+            <Bot className="w-3.5 h-3.5 text-purple-600" />
+            <span>LifeOS Central AI</span>
+          </button>
+
+          <button
+            onClick={() => setAiEngine('n8n')}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+              aiEngine === 'n8n'
+                ? 'bg-white text-amber-950 shadow-2xs'
+                : 'text-stone-500 hover:text-stone-900'
+            }`}
+          >
+            <Zap className="w-3.5 h-3.5 text-amber-600" />
+            <span>n8n Cloud Chatbot</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          </button>
+        </div>
+
+        <span className="text-[11px] text-stone-400 font-medium hidden sm:inline">
+          {aiEngine === 'lifeos' ? 'Cross-pillar Life Operating System' : 'Direct n8n webhook workflow connection'}
+        </span>
+      </div>
+
+      {aiEngine === 'n8n' ? (
+        <N8nChatView />
+      ) : (
+        <>
+          {/* Header Context Strip: Shows what LifeOS AI knows right now */}
+          <div className="p-4 rounded-3xl bg-white border border-stone-200/80 shadow-xs flex flex-wrap items-center justify-between gap-3 shrink-0">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#E9DDFB] to-[#DCEBFA] flex items-center justify-center border border-purple-200 shadow-2xs">
             <Bot className="w-5 h-5 text-purple-800" />
@@ -266,6 +307,8 @@ export const AIAgentView: React.FC = () => {
           <Send className="w-3.5 h-3.5" />
         </button>
       </form>
+        </>
+      )}
     </div>
   );
 };

@@ -34,6 +34,7 @@ export const Sidebar: React.FC = () => {
     { id: 'schedule', label: 'Schedule', icon: Calendar, badge: `${lifeState.schedule.weeklyAvailableHours}h` },
     { id: 'progress', label: 'Progress', icon: TrendingUp },
     { id: 'ai', label: 'LifeOS AI', icon: Bot, badge: 'Live', color: 'text-purple-600' },
+    { id: 'n8n', label: 'n8n Chatbot', icon: Zap, badge: 'Live', color: 'text-amber-600' },
   ];
 
   return (
@@ -48,6 +49,7 @@ export const Sidebar: React.FC = () => {
             const Icon = item.icon;
             const isActive = activeSection === item.id;
             const isAI = item.id === 'ai';
+            const isN8n = item.id === 'n8n';
 
             return (
               <button
@@ -57,6 +59,8 @@ export const Sidebar: React.FC = () => {
                   isActive
                     ? isAI
                       ? 'bg-gradient-to-r from-[#E9DDFB] to-[#DCEBFA] text-purple-950 shadow-xs border border-purple-200'
+                      : isN8n
+                      ? 'bg-gradient-to-r from-[#FFF9F2] to-[#FBE4D5] text-amber-950 shadow-xs border border-amber-200'
                       : 'bg-stone-900 text-white shadow-xs'
                     : 'text-stone-600 hover:text-stone-900 hover:bg-stone-100/80'
                 }`}
@@ -67,6 +71,8 @@ export const Sidebar: React.FC = () => {
                       isActive
                         ? isAI
                           ? 'bg-white/80 text-purple-700'
+                          : isN8n
+                          ? 'bg-white/80 text-amber-700'
                           : 'bg-white/20 text-white'
                         : 'text-stone-500 group-hover:text-stone-800'
                     }`}
@@ -82,9 +88,13 @@ export const Sidebar: React.FC = () => {
                       isActive
                         ? isAI
                           ? 'bg-purple-200 text-purple-900'
+                          : isN8n
+                          ? 'bg-amber-200 text-amber-900'
                           : 'bg-white/20 text-white'
                         : isAI
-                        ? 'bg-purple-100 text-purple-700 font-bold animate-pulse'
+                        ? 'bg-purple-100 text-purple-700 font-bold'
+                        : isN8n
+                        ? 'bg-amber-100 text-amber-800 font-bold animate-pulse'
                         : 'bg-stone-100 text-stone-600'
                     }`}
                   >

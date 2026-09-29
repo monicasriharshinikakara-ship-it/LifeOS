@@ -17,6 +17,8 @@ import { FinanceView } from './components/finance/FinanceView';
 import { ScheduleView } from './components/schedule/ScheduleView';
 import { ProgressView } from './components/progress/ProgressView';
 import { AIAgentView } from './components/ai/AIAgentView';
+import { N8nChatView } from './components/n8n/N8nChatView';
+import { N8nFloatingWidget } from './components/n8n/N8nFloatingWidget';
 import { OnboardingModal } from './components/onboarding/OnboardingModal';
 import { Sparkles, ArrowRight, Check, X } from 'lucide-react';
 
@@ -85,8 +87,12 @@ const MainContent: React.FC = () => {
           {activeSection === 'schedule' && <ScheduleView />}
           {activeSection === 'progress' && <ProgressView />}
           {activeSection === 'ai' && <AIAgentView />}
+          {activeSection === 'n8n' && <N8nChatView />}
         </main>
       </div>
+
+      {/* Official n8n Floating Chatbot Widget */}
+      <N8nFloatingWidget />
 
       {/* Onboarding / Setup Modal */}
       <OnboardingModal />
